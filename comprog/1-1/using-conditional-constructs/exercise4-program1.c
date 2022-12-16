@@ -18,12 +18,8 @@ int main(void) {
 
     // if statements, this will decide what would be the rate of the call per minute
     // checks if the day is weekday or weekend, this is a weekend
-    // the rate for the weekend does not change so it will not ask when the call was started
-    if (day >= 6 && day <= 7) {
-        rate = 1.5;
-    }
     // this is a weekday
-    else {
+    if (day >= 1 && day <= 5) {
         // since the call is made in a weekday, there will be different rate depending on the time
         // so the program will ask when what the call started
         printf("[24-hour format] What time was the call started? (Separate hour and minutes with a space. Ex: 14 00 for 2:00 PM): ");
@@ -41,6 +37,10 @@ int main(void) {
         else {
             rate = 2.0;
         }
+    }
+    // the rate for the weekend does not change so it will not ask when the call was started
+    else {
+        rate = 1.5;
     }
 
     // computes the bill
