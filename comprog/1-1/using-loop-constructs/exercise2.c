@@ -11,10 +11,11 @@ int main(void){
         // checks if i is odd by using a modulo operator
         if (i % 2 != 0){
             // prints the odd number
-            printf("%i\n", i);
+            printf("%i ", i);
         }
     }
 
     // program ran successfully
+    printf("\n");
     return 0;
 }
