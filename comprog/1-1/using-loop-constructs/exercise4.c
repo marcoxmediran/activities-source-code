@@ -9,6 +9,7 @@ int main(void){
     // declare variables
     float sum = 0, toAdd;
 
+    // will take input from user until '0' is entered
     do{
         printf("Enter a number: ");
         scanf("%f", &toAdd);
