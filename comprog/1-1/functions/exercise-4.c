@@ -16,8 +16,8 @@ int main(void){
 
     // program ran successfully
     printf("The binary value is: ");
-    toBinary(a);
-    return 0;
+	toBinary(a);
+	return 0;
 }
 
 // prints the binary equivalent of the given integer
