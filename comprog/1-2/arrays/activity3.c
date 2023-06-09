@@ -12,7 +12,7 @@
 
 int main(void) {
     // declare variables and take input
-    int matrix[MATRIX_SIZE][MATRIX_SIZE] = {};
+    int matrix[MATRIX_SIZE][MATRIX_SIZE];
     for (int i = 0; i < MATRIX_SIZE; i++) {
         for (int j = 0; j < MATRIX_SIZE; j++) {
             printf("Enter integer for matrix[%i][%i]: ", i, j);
@@ -32,21 +32,12 @@ int main(void) {
     // calculate the product of the elements from the 1st diagonal
     int product0 = 1;
     printf("\n");
-    printf("The product of the 1st diagonal, ");
+    printf("The product of the diagonal, ");
     for (int i = 0; i < MATRIX_SIZE; i++) {
-        printf("%i ", matrix[i][i]);
+        printf("%i, ", matrix[i][i]);
         product0 *= matrix[i][i];
     }
-    printf(", is %i\n", product0);
-
-    // calculate the product of the elements from the 2nd diagonal
-    int product1 = 1;
-    printf("The product of the 2nd diagonal, ");
-    for (int i = 0; i < MATRIX_SIZE; i++) {
-        printf("%i ", matrix[i][MATRIX_SIZE - i - 1]);
-        product1 *= matrix[i][MATRIX_SIZE - i - 1];
-    }
-    printf(", is %i\n", product1);
+    printf("is %i\n", product0);
 
     // program ran successfully
     return 0;

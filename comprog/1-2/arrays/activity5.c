@@ -13,7 +13,7 @@
 
 int main(void) {
     // declare variables and take input
-    int matrix[MATRIX_SIZE][MATRIX_SIZE] = {};
+    int matrix[MATRIX_SIZE][MATRIX_SIZE];
     int row0_sum = 0, row1_sum = 0, row2_sum = 0;
     int col0_sum = 0, col1_sum = 0, col2_sum = 0;
     for (int i = 0; i < MATRIX_SIZE; i++) {

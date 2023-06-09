@@ -15,7 +15,7 @@
 int main(void) {
     // declare variables and take input
     int largest, i_pos, j_pos;
-    int matrix[SIZE][SIZE] = {};
+    int matrix[SIZE][SIZE];
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             // get integer from user for every element
