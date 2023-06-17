@@ -35,6 +35,7 @@ void sortString(char *string, int true_size) {
         for (int j = 0; j < true_size - 1; j++) {
             current = *(string + j);
             next = *(string + j + 1);
+            // uses tolower() to make comparison case-insensitive
             if (tolower(current) > tolower(next)) {
                 temp = current;
                 *(string + j) = next;
