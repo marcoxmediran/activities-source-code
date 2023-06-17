@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 // global variables
 #define MAX_LENGTH 50
@@ -21,10 +22,10 @@ int main(void) {
 
     // count character and identifiy
     for (i = 0, true_length = strlen(str) - 1; i < true_length; i++) {
-        if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97) && (str[i] <= 122)) {
+        if (isalpha(str[i])) {
             alpha += 1;
         }
-        else if (str[i] >= 48 && str[i] <= 57) {
+        else if (isdigit(str[i])) {
             digits += 1;
         }
         else {

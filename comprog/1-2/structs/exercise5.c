@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 // global variables
 #define MAX_LENGTH 50
@@ -28,12 +29,13 @@ int main(void) {
 }
 
 void sortString(char *string, int true_size) {
+    int i;
     char temp, current, next;
-    for (int i = 0; i < true_size - 1; i++) {
+    for (i = 0; i < true_size - 1; i++) {
         for (int j = 0; j < true_size - 1; j++) {
             current = *(string + j);
             next = *(string + j + 1);
-            if (current > next) {
+            if (tolower(current) > tolower(next)) {
                 temp = current;
                 *(string + j) = next;
                 *(string + j + 1) = temp;
