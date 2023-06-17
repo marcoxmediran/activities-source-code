@@ -18,8 +18,10 @@ typedef struct {
 int main(void) {
     // declare variables and take input
     int i;
-    restaurant a = {"Jollibee General Trias Bayan", "General Santos Street Corner, Sampalucan St. (Brgy. 2), 4107 General Trias Cavite", \
-                    125.50, {"Yumburger", "ChickenJoy", "Fries", "Peach Mango Pie", "Ice Cream Sundae"}};
+    restaurant a = {"Jollibee General Trias Bayan", \
+    "Sampalucan St. (Brgy. 2), 4107 General Trias Cavite", \
+    125.50, {"Yumburger", "ChickenJoy", \
+    "Fries", "Peach Mango Pie", "Ice Cream Sundae"}};
     
     // demo
     printf("This is my go-to restaurant whenever I am hungry:\n");
