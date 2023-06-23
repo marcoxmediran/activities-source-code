@@ -66,13 +66,10 @@ int main(void) {
             case 2:
                 temp_id = get_int("Enter student ID to search: ");
                 for (i = 0; i < last_student; i++) {
-                    printf("%i %i\n", temp_id, sdm[i].id);
                     if (temp_id == sdm[i].id) {
-                        printf("\nStudent Details:\n\n");
                         printStudentDetails(sdm + i);
                         break;
                     }
-                    printf("\nStudent ID not found\n\n");
                 }
                 break;
             case 3:
