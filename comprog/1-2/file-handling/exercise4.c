@@ -1,7 +1,7 @@
 /*
  * Marcox C. Mediran
  * BSCS1_4
- * Exercise n
+ * Exercise 4
 */
 
 // libraries
