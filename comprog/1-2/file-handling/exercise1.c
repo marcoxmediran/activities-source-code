@@ -24,6 +24,7 @@ int main(void) {
     fprintf(fp, "%s", input);
 
     // program ran successfully
+    printf("The file test.txt was created successfully...!!\n");
     free(input);
     fclose(fp);
     return 0;
