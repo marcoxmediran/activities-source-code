@@ -22,8 +22,6 @@ int main(void) {
     string file_name = get_string("Input the file name to be opened: ");
     string read_line = malloc(MAX_LENGTH);
     FILE *fp = fopen(file_name, "r");
-    int word_count = 0;
-    int character_count = 0;
 
     printf("The content of the file %s is:\n", file_name);
     while (!feof(fp)) {
