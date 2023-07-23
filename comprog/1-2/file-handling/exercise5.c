@@ -24,23 +24,24 @@ int main(void) {
     string read_line = malloc(MAX_LENGTH);
     const int APPEND_LINE_COUNT = get_int("Input the number of lines to be writted: ");
     FILE *fp = fopen(file_name, "a");
-    fgetc(stdin);
 
+    // append lines
+    fgetchar();
     printf("These lines are:\n");
     for (int i = 0; i < APPEND_LINE_COUNT; i++) {
         fprintf(fp, "%s\n", get_string(""));
     }
     fclose(fp);
-    fp = fopen(file_name, "r");
+
+    // print lines
     printf("\nThe content of the file %s is:\n", file_name);
-    while(!feof(fp)) {
-        fgets(read_line, MAX_LENGTH, fp); 
+    fp = fopen(file_name, "r");
+    while (fgets(read_line, MAX_LENGTH, fp) != NULL) {
         printf("%s", read_line);
     }
 
     // program ran successfully
     free(file_name);
-    free(read_line);
     fclose(fp);
     return 0;
 }
