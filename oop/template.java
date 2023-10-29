@@ -7,5 +7,7 @@
 package mmediran.oop.lessonnumber;
 
 public class ActivityNumber {
+	public static void main(String[] args) {
 
+	}
 }
