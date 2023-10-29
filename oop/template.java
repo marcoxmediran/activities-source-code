@@ -6,6 +6,6 @@
 
 package mmediran.oop.lessonnumber;
 
-public class activitynumber {
+public class ActivityNumber {
 
 }
