@@ -27,7 +27,7 @@ public class Activity4 {
 		
 		// calculate result
 		raw_interest = PRINCIPAL * INTEREST_RATE * terms;
-		withholding_tax = raw_interest * TAX_RATE;
+		withholding_tax = raw_interest * TAX_RATE * terms;
 		net_interest = raw_interest - withholding_tax;
 
 		// show result
