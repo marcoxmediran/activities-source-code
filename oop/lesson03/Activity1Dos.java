@@ -8,10 +8,9 @@ package mmediran.oop.lesson03;
 
 import java.io.IOException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
-public class Activity1 {
-	// DOS + GUI program
+public class Activity1Dos {
+	// DOS program
 	public static void main(String[] args) throws IOException {
 		// declare variables
 		Scanner scanner = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class Activity1 {
 		Float recitation1_grade, recitation2_grade, recitation_average;
 		Float project1_grade, project2_grade, project_average;
 		Float exam_rating;
-		Float class_standing, midterm_grade;
+		Float class_standing, prelim_grade;
 
 		// take input
 		System.out.print("Enter student's name: ");
@@ -29,7 +28,7 @@ public class Activity1 {
 		course = scanner.nextLine();
 		
 		// class standing inputs
-		System.out.println("For the following prompts, please input grades on a scale of 0-30, with 30 as highest");
+		System.out.println("For the following prompts, please input grades on a scale of 0-100, with 100 as highest");
 		System.out.print("Enter grade for quiz1: ");
 		quiz1_grade = scanner.nextFloat();
 		System.out.print("Enter grade for quiz2: ");
@@ -44,7 +43,6 @@ public class Activity1 {
 		project2_grade = scanner.nextFloat();
 
 		// exam rating input
-		System.out.println("For the last prompt, please input the exam rating on a scale of 0-40, with 40 as highest");
 		System.out.print("Enter grade for the exam: ");
 		exam_rating = scanner.nextFloat();
 
@@ -55,10 +53,10 @@ public class Activity1 {
 
 		// calculate grades
 		class_standing = (quiz_average + recitation_average + project_average) / 3;
-		midterm_grade = (class_standing * 2) + exam_rating;
+		prelim_grade = ((class_standing * 2) + exam_rating) / 3;
 
 		// show result
-		JOptionPane.showMessageDialog(null, String.format("The student %s from %s has a midterm grade of %.2f", name, course, midterm_grade), "Midterm Grade", 1);
+		System.out.printf("The student %s from %s has a prelim grade of %.2f\n", name, course, prelim_grade);
 
 		// program ran successfully
 		scanner.close();

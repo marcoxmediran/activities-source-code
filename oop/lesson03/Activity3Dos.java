@@ -8,7 +8,7 @@ package mmediran.oop.lesson03;
 
 import java.io.IOException;
 
-public class Activity3 {
+public class Activity3Dos {
 	// DOS program
 	public static void main(String[] args) throws IOException {
 		// declare variables

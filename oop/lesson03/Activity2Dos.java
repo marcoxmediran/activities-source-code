@@ -7,24 +7,27 @@
 package mmediran.oop.lesson03;
 
 import java.io.IOException;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
-public class Activity2 {
-	// GUI program
+public class Activity2Dos {
+	// DOS program
 	public static void main(String[] args) throws IOException {
 		// declare variables
+		Scanner scanner = new Scanner(System.in);
 		final Float RATE = 50.50f;
 		Float usd, peso;
 		
 
 		// take input and calculate answer
-		usd = Float.parseFloat(JOptionPane.showInputDialog("Input your cash in US Dollars: "));
+		System.out.print("Input you cash in US Dollars: ");
+		usd = scanner.nextFloat();
 		peso = usd * RATE;
 
 		// show answer
-		JOptionPane.showMessageDialog(null, String.format("$%.2f is equal to P%.2f", usd, peso), "Conversion Result", 1);
+		System.out.printf("%.2f is equal to %.2f\n", usd, peso);
 
 		// program ran successfully
+		scanner.close();
 		System.exit(0);
 	}
 }
