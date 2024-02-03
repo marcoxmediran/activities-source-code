@@ -23,8 +23,18 @@ public class Table extends JFrame {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         
-        mainTable = new JTable(createTableModel(db.getTable()));
-        mainTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        String[] headers = {"ID", "First Name", "Last Name", "Age", "Gender", "Address", "Program", "Email"};
+        mainTable = new JTable(createTableModel(db.getTable(), headers));
+        mainTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        mainTable.getColumn(headers[0]).setPreferredWidth(40);
+        mainTable.getColumn(headers[1]).setPreferredWidth(150);
+        mainTable.getColumn(headers[2]).setPreferredWidth(150);
+        mainTable.getColumn(headers[3]).setPreferredWidth(40);
+        mainTable.getColumn(headers[4]).setPreferredWidth(70);
+        mainTable.getColumn(headers[5]).setPreferredWidth(300);
+        mainTable.getColumn(headers[6]).setPreferredWidth(200);
+        mainTable.getColumn(headers[7]).setPreferredWidth(200);
+        
         
         
         // add mainPanel to JFrame
@@ -37,13 +47,14 @@ public class Table extends JFrame {
         
         // create JFrame
         pack();
+        setSize(1170, 400);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
     
-    public DefaultTableModel createTableModel(ResultSet rs) throws SQLException {
-        String[] headers = {"ID", "First Name", "Last Name", "Age", "Gender", "Address", "Program", "Email"};
+    public DefaultTableModel createTableModel(ResultSet rs, String[] headers) throws SQLException {
         DefaultTableModel model = new DefaultTableModel(headers, 0);
         while (rs.next()) {
             String id = rs.getString("id");

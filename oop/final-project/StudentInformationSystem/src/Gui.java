@@ -12,27 +12,27 @@ public class Gui extends javax.swing.JFrame {
     
     private DatabaseHandler db;
     
-    private ButtonGroup buttonGroup1;
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JComboBox<String> jComboBox1;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JLabel jLabel5;
-    private JLabel jLabel6;
-    private JLabel jLabel7;
-    private JLabel jLabel8;
+    private ButtonGroup radioGroup;
+    private JButton clearButton;
+    private JButton saveButton;
+    private JButton displayButton;
+    private JComboBox<String> programComboBox;
+    private JLabel windowLabel;
+    private JLabel genderLabel;
+    private JLabel lastNameLabel;
+    private JLabel ageLabel;
+    private JLabel firstNameLabel;
+    private JLabel programLabel;
+    private JLabel addressLabel;
+    private JLabel emailLabel;
     private JPanel jPanel1;
-    private JRadioButton jRadioButton1;
-    private JRadioButton jRadioButton2;
-    private JTextField jTextField1;
-    private JTextField jTextField2;
-    private JTextField jTextField3;
-    private JTextField jTextField4;
-    private JTextField jTextField5;
+    private JRadioButton maleRadio;
+    private JRadioButton femaleRadio;
+    private JTextField firstNameField;
+    private JTextField lastNameField;
+    private JTextField ageField;
+    private JTextField addressField;
+    private JTextField emailField;
 
     public Gui(DatabaseHandler db) {
         this.db = db;
@@ -41,87 +41,87 @@ public class Gui extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new JLabel();
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
-        jLabel4 = new JLabel();
-        jLabel5 = new JLabel();
-        jLabel6 = new JLabel();
-        jLabel7 = new JLabel();
-        jLabel8 = new JLabel();
-        jTextField1 = new JTextField();
-        jTextField2 = new JTextField();
-        jTextField3 = new JTextField();
-        jTextField4 = new JTextField();
-        jTextField5 = new JTextField();
-        jRadioButton1 = new JRadioButton();
-        jRadioButton2 = new JRadioButton();
-        jComboBox1 = new JComboBox<>();
+        radioGroup = new javax.swing.ButtonGroup();
+        windowLabel = new JLabel();
+        genderLabel = new JLabel();
+        lastNameLabel = new JLabel();
+        ageLabel = new JLabel();
+        firstNameLabel = new JLabel();
+        programLabel = new JLabel();
+        addressLabel = new JLabel();
+        emailLabel = new JLabel();
+        firstNameField = new JTextField();
+        lastNameField = new JTextField();
+        ageField = new JTextField();
+        addressField = new JTextField();
+        emailField = new JTextField();
+        maleRadio = new JRadioButton();
+        femaleRadio = new JRadioButton();
+        programComboBox = new JComboBox<>();
         jPanel1 = new JPanel();
-        jButton1 = new JButton();
-        jButton2 = new JButton();
-        jButton3 = new JButton();
+        clearButton = new JButton();
+        saveButton = new JButton();
+        displayButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new Font("Sitka Text", 1, 30));
-        jLabel1.setText("CCIS Student Information");
+        windowLabel.setFont(new Font("Sitka Text", 1, 30));
+        windowLabel.setText("CCIS Student Information");
 
-        jLabel2.setFont(new Font("Sitka Text", 0, 18));
-        jLabel2.setText("Gender:");
+        genderLabel.setFont(new Font("Sitka Text", 0, 18));
+        genderLabel.setText("Gender:");
 
-        jLabel3.setFont(new Font("Sitka Text", 0, 18));
-        jLabel3.setText("Last Name:");
+        lastNameLabel.setFont(new Font("Sitka Text", 0, 18));
+        lastNameLabel.setText("Last Name:");
 
-        jLabel4.setFont(new Font("Sitka Text", 0, 18));
-        jLabel4.setText("Age:");
+        ageLabel.setFont(new Font("Sitka Text", 0, 18));
+        ageLabel.setText("Age:");
 
-        jLabel5.setFont(new Font("Sitka Text", 0, 18));
-        jLabel5.setText("First Name:");
+        firstNameLabel.setFont(new Font("Sitka Text", 0, 18));
+        firstNameLabel.setText("First Name:");
 
-        jLabel6.setFont(new Font("Sitka Text", 0, 18));
-        jLabel6.setText("Program:");
+        programLabel.setFont(new Font("Sitka Text", 0, 18));
+        programLabel.setText("Program:");
 
-        jLabel7.setFont(new Font("Sitka Text", 0, 18));
-        jLabel7.setText("Address:");
+        addressLabel.setFont(new Font("Sitka Text", 0, 18));
+        addressLabel.setText("Address:");
 
-        jLabel8.setFont(new Font("Sitka Text", 0, 18));
-        jLabel8.setText("Email:");
+        emailLabel.setFont(new Font("Sitka Text", 0, 18));
+        emailLabel.setText("Email:");
 
-        jTextField1.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(new ActionListener() {
+        firstNameField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        firstNameField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-
-        jTextField2.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        jTextField2.addActionListener(new ActionListener() {
+        
+        lastNameField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        lastNameField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-
-        jTextField3.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        jTextField3.addActionListener((ActionEvent evt) -> {
+        
+        ageField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        ageField.addActionListener((ActionEvent evt) -> {
             jTextField3ActionPerformed(evt);
         });
-
-        jTextField4.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        jTextField4.addActionListener(new ActionListener() {
+        
+        addressField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        addressField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
 
-        jTextField5.setForeground(Color.gray);
-        jTextField5.setText("(Optional)");
-        jTextField5.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        jTextField5.addFocusListener(new FocusAdapter() {
+        emailField.setForeground(Color.gray);
+        emailField.setText("(Optional)");
+        emailField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        emailField.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent evt) {
                 jTextField5FocusGained(evt);
@@ -131,42 +131,42 @@ public class Gui extends javax.swing.JFrame {
                 jTextField5FocusLost(evt);
             }
         });
-        jTextField5.addActionListener(new ActionListener() {
+        emailField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new Font("Sitka Text", 0, 18));
-        jRadioButton1.setText("Male");
-        jRadioButton1.addActionListener(new ActionListener() {
+        radioGroup.add(maleRadio);
+        maleRadio.setFont(new Font("Sitka Text", 0, 18));
+        maleRadio.setText("Male");
+        maleRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new Font("Sitka Text", 0, 18)); 
-        jRadioButton2.setText("Female");
-        jRadioButton2.addActionListener(new ActionListener() {
+        radioGroup.add(femaleRadio);
+        femaleRadio.setFont(new Font("Sitka Text", 0, 18)); 
+        femaleRadio.setText("Female");
+        femaleRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new Font("Sitka Text", 0, 14)); 
-        jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "(Choose a Program)", "CS", "IT" }));
-        jComboBox1.addItemListener(new ItemListener() {
+        programComboBox.setFont(new Font("Sitka Text", 0, 14)); 
+        programComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "(Choose a Program)", "Computer Science", "Information Technology" }));
+        programComboBox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
             }
         });
-        jComboBox1.addFocusListener(new FocusAdapter() {
+        programComboBox.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent evt) {
                 jComboBox1FocusGained(evt);
@@ -176,26 +176,46 @@ public class Gui extends javax.swing.JFrame {
                 jComboBox1FocusLost(evt);
             }
         });
-        jComboBox1.addActionListener(new ActionListener() {
+        programComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new Font("Sitka Text", 1, 16)); 
-        jButton1.setText("Clear");
+        clearButton.setFont(new Font("Sitka Text", 1, 16)); 
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent evt) {
+               try {
+                   clearButtonActionPerformed(evt);
+               } catch (SQLException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }
+        });
 
-        jButton2.setFont(new Font("Sitka Text", 1, 16));
-        jButton2.setText("Save");
+        saveButton.setFont(new Font("Sitka Text", 1, 16));
+        saveButton.setText("Save");
+        saveButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent evt) {
+               try {
+                   saveButtonActionPerformed(evt);
+               } catch (SQLException ex) {
+                    Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           }
+        });
 
-        jButton3.setFont(new Font("Sitka Text", 1, 16)); 
-        jButton3.setText("Display");
-        jButton3.addActionListener(new ActionListener() {
+        displayButton.setFont(new Font("Sitka Text", 1, 16)); 
+        displayButton.setText("Display");
+        displayButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 try {
-                    jButton3ActionPerformed(evt);
+                    displayButtonActionPerformed(evt);
                 } catch (SQLException ex) {
                     Logger.getLogger(Gui.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -208,11 +228,11 @@ public class Gui extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                .addComponent(clearButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                .addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                .addComponent(displayButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -220,9 +240,9 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clearButton, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveButton, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(displayButton, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -233,29 +253,29 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(windowLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6))
+                            .addComponent(firstNameLabel)
+                            .addComponent(lastNameLabel)
+                            .addComponent(ageLabel)
+                            .addComponent(addressLabel)
+                            .addComponent(emailLabel)
+                            .addComponent(genderLabel)
+                            .addComponent(programLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(jTextField4, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(jTextField3, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(jTextField2, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(jTextField1)
+                            .addComponent(emailField, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(addressField, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(ageField, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(lastNameField, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(firstNameField)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(maleRadio)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2))
-                            .addComponent(jComboBox1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(femaleRadio))
+                            .addComponent(programComboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(76, Short.MAX_VALUE))
             .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -263,36 +283,36 @@ public class Gui extends javax.swing.JFrame {
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+                .addComponent(windowLabel)
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameLabel)
+                    .addComponent(firstNameField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastNameLabel)
+                    .addComponent(lastNameField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ageLabel)
+                    .addComponent(ageField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(genderLabel)
+                    .addComponent(maleRadio)
+                    .addComponent(femaleRadio))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(programLabel)
+                    .addComponent(programComboBox, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField4, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressLabel)
+                    .addComponent(addressField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField5, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailLabel)
+                    .addComponent(emailField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -322,16 +342,16 @@ public class Gui extends javax.swing.JFrame {
     }                                           
 
     private void jTextField5FocusGained(FocusEvent evt) {                                        
-        if (jTextField5.getText().equals("(Optional)")) {
-                    jTextField5.setText("");
-                    jTextField5.setForeground(Color.BLACK);
+        if (emailField.getText().equals("(Optional)")) {
+                    emailField.setText("");
+                    emailField.setForeground(Color.BLACK);
                 }
     }                                       
 
     private void jTextField5FocusLost(FocusEvent evt) {                                      
-        if (jTextField5.getText().isEmpty()) {
-                    jTextField5.setText("(Optional)");
-                    jTextField5.setForeground(Color.GRAY);
+        if (emailField.getText().isEmpty()) {
+                    emailField.setText("(Optional)");
+                    emailField.setForeground(Color.GRAY);
                 }
     }                                     
 
@@ -348,30 +368,59 @@ public class Gui extends javax.swing.JFrame {
     }                                          
 
     private void jComboBox1FocusLost(FocusEvent evt) {                                     
-        if (jComboBox1.getSelectedItem() == null || jComboBox1.getSelectedItem().toString().isEmpty()) {
-            jComboBox1.setForeground(Color.GRAY); 
-            jComboBox1.setSelectedItem("(Choose a Program)"); 
+        if (programComboBox.getSelectedItem() == null || programComboBox.getSelectedItem().toString().isEmpty()) {
+            programComboBox.setForeground(Color.GRAY); 
+            programComboBox.setSelectedItem("(Choose a Program)"); 
         }
     }                                    
 
     private void jComboBox1FocusGained(FocusEvent evt) {                                       
-        if (jComboBox1.getSelectedItem().equals("(Choose a Program)")) {
-            jComboBox1.setSelectedItem(null);
+        if (programComboBox.getSelectedItem().equals("(Choose a Program)")) {
+            programComboBox.setSelectedItem(null);
         }
-        jComboBox1.setForeground(Color.BLACK);
+        programComboBox.setForeground(Color.BLACK);
     }                                      
 
     private void jComboBox1ItemStateChanged(ItemEvent evt) {                                            
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-            if (jComboBox1.getSelectedItem().equals("(Choose a Program)")) {
-                jComboBox1.setSelectedItem(null); // Clear the placeholder when an item is selected
-                jComboBox1.setForeground(Color.BLACK);
+            if (programComboBox.getSelectedItem().equals("(Choose a Program)")) {
+                programComboBox.setSelectedItem(null); // Clear the placeholder when an item is selected
+                programComboBox.setForeground(Color.BLACK);
                 }
             }
-    }                                           
+    }                                       
+    
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
+        // adds a new student to the database;
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String age = ageField.getText();
+        String gender = maleRadio.isSelected() ? "M" : "F";
+        String program = String.valueOf(programComboBox.getSelectedItem());
+        String address = addressField.getText();
+        String email = emailField.getText().equals("(Optional)") ? "NULL" : emailField.getText();
+        Student student = new Student(firstName, lastName, age, gender, program, address, email);
+        db.addStudent(student);
+        this.clearFields();
+    }                                     
+    
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
+        this.clearFields();
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                         
+    private void displayButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                         
         // Spawns database table window
         Table table = new Table(db);
+    }
+    
+    private void clearFields() {
+        // clears all fields
+        firstNameField.setText("");
+        lastNameField.setText("");
+        ageField.setText("");
+        addressField.setText("");
+        emailField.setText("");
+        radioGroup.clearSelection();
+        programComboBox.setSelectedIndex(0);
     }
 }
