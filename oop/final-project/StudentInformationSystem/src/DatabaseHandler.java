@@ -4,7 +4,6 @@ public class DatabaseHandler {
     
     private Connection connection;
     private Statement statement;
-    private ResultSet resultSet;
     
     public DatabaseHandler() {
         try {
