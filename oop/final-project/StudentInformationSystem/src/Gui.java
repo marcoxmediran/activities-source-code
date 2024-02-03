@@ -64,6 +64,7 @@ public class Gui extends javax.swing.JFrame {
         displayButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         windowLabel.setFont(new Font("Sitka Text", 1, 30));
         windowLabel.setText("CCIS Student Information");
@@ -400,8 +401,12 @@ public class Gui extends javax.swing.JFrame {
         String address = addressField.getText();
         String email = emailField.getText().equals("(Optional)") ? "NULL" : emailField.getText();
         Student student = new Student(firstName, lastName, age, gender, program, address, email);
-        db.addStudent(student);
-        this.clearFields();
+        if (student.isValid()) {
+            db.addStudent(student);
+            this.clearFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please answer all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
+        }
     }                                     
     
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {

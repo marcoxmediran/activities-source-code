@@ -21,6 +21,25 @@ public class Student {
         this.emailAddress = email;
     }
     
+    public boolean isValid() {
+        if (this.firstName.isEmpty()) {
+            return false;
+        } else if (this.lastName.isEmpty()) {
+            return false;
+        } else if (this.age.isEmpty()) {
+            return false;
+        } else if (this.gender.isEmpty()) {
+            return false;
+        } else if (this.program.equals("(Choose a Program)")) {
+            return false;
+        } else if (this.permanentAddress.isEmpty()) {
+            return false;
+        } else if (this.emailAddress.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+    
     @Override
     public String toString() {
         return String.format("VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')", this.firstName, this.lastName, this.age, this.gender, this.program, this.permanentAddress, this.emailAddress);
