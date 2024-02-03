@@ -30,7 +30,7 @@ public class Student {
             return false;
         } else if (this.gender.isEmpty()) {
             return false;
-        } else if (this.program.equals("(Choose a Program)")) {
+        } else if (this.program.isEmpty()) {
             return false;
         } else if (this.permanentAddress.isEmpty()) {
             return false;

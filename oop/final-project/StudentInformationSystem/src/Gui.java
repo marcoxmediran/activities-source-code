@@ -91,33 +91,12 @@ public class Gui extends javax.swing.JFrame {
         emailLabel.setText("Email:");
 
         firstNameField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        firstNameField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
         
         lastNameField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        lastNameField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
         
         ageField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        ageField.addActionListener((ActionEvent evt) -> {
-            jTextField3ActionPerformed(evt);
-        });
         
         addressField.setCursor(new Cursor(Cursor.TEXT_CURSOR));
-        addressField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
 
         emailField.setForeground(Color.gray);
         emailField.setText("(Optional)");
@@ -132,32 +111,14 @@ public class Gui extends javax.swing.JFrame {
                 jTextField5FocusLost(evt);
             }
         });
-        emailField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
 
         radioGroup.add(maleRadio);
         maleRadio.setFont(new Font("Sitka Text", 0, 18));
         maleRadio.setText("Male");
-        maleRadio.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
 
         radioGroup.add(femaleRadio);
         femaleRadio.setFont(new Font("Sitka Text", 0, 18)); 
         femaleRadio.setText("Female");
-        femaleRadio.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
 
         programComboBox.setFont(new Font("Sitka Text", 0, 14)); 
         programComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "(Choose a Program)", "Computer Science", "Information Technology" }));
@@ -175,12 +136,6 @@ public class Gui extends javax.swing.JFrame {
             @Override
             public void focusLost(FocusEvent evt) {
                 jComboBox1FocusLost(evt);
-            }
-        });
-        programComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -320,27 +275,7 @@ public class Gui extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-
-    private void jTextField1ActionPerformed(ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void jTextField2ActionPerformed(ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void jTextField3ActionPerformed(ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void jTextField4ActionPerformed(ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void jTextField5ActionPerformed(ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
+    }// </editor-fold>                                               
 
     private void jTextField5FocusGained(FocusEvent evt) {                                        
         if (emailField.getText().equals("(Optional)")) {
@@ -354,19 +289,7 @@ public class Gui extends javax.swing.JFrame {
                     emailField.setText("(Optional)");
                     emailField.setForeground(Color.GRAY);
                 }
-    }                                     
-
-    private void jRadioButton1ActionPerformed(ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void jRadioButton2ActionPerformed(ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void jComboBox1ActionPerformed(ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
+    }                        
 
     private void jComboBox1FocusLost(FocusEvent evt) {                                     
         if (programComboBox.getSelectedItem() == null || programComboBox.getSelectedItem().toString().isEmpty()) {
@@ -396,8 +319,8 @@ public class Gui extends javax.swing.JFrame {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String age = ageField.getText();
-        String gender = maleRadio.isSelected() ? "M" : "F";
-        String program = String.valueOf(programComboBox.getSelectedItem());
+        String gender = radioGroup.getSelection() == null ? "" : (maleRadio.isSelected() ? "M" : "F");
+        String program = programComboBox.getSelectedIndex() == 0 ? "" : String.valueOf(programComboBox.getSelectedItem());
         String address = addressField.getText();
         String email = emailField.getText().equals("(Optional)") ? "NULL" : emailField.getText();
         Student student = new Student(firstName, lastName, age, gender, program, address, email);
