@@ -15,7 +15,11 @@ public class Main {
         db.createTable();
         
         // launch gui program
-        Gui gui = new Gui("Student Information System", db);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Gui(db).setVisible(true);
+            }
+        });
     }
     
     public static void enableNimbusLookAndFeel() {
@@ -26,8 +30,14 @@ public class Main {
                 break;
                 }
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
     
