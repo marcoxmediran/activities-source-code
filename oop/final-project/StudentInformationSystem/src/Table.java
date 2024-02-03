@@ -7,6 +7,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class Table extends JFrame implements ActionListener {
     
@@ -14,9 +16,10 @@ public class Table extends JFrame implements ActionListener {
     private String[] headers = {"ID", "First Name", "Last Name", "Age", "Gender", "Address", "Program", "Email"};
     
     private JPanel mainPanel;
-    private JPanel controlPanel;
+    private JPanel controlPanel, leftPanel, rightPanel;
     private JTable mainTable;
-    private JButton refreshButton, deleteButton, searchButton, truncateButton;
+    private JTextField searchField;
+    private JButton refreshButton, searchButton, deleteButton, truncateButton;
     
     public Table(DatabaseHandler db) throws SQLException {
         // instantiate
@@ -26,14 +29,21 @@ public class Table extends JFrame implements ActionListener {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         
-        controlPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        controlPanel = new JPanel();
+        controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.LINE_AXIS));
+        leftPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        rightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         
         mainTable = new JTable(createTableModel(db.getTable(), headers));
+        mainTable.setAutoCreateRowSorter(true);
         this.resizeTableColumns();
         
-        refreshButton = new JButton("Refresh");
         deleteButton = new JButton("Delete Row");
-        truncateButton = new JButton("Clear");
+        truncateButton = new JButton("Clear Table");
+        
+        searchField = new JTextField(20);
+        searchButton = new JButton("Search");
+        refreshButton = new JButton("Refresh");
         
         
         // add mainPanel to JFrame
@@ -44,14 +54,24 @@ public class Table extends JFrame implements ActionListener {
         mainPanel.add(new JScrollPane(mainTable));
         
         // add components to controlPanel
-        controlPanel.add(refreshButton);
-        controlPanel.add(deleteButton);
-        controlPanel.add(truncateButton);
+        controlPanel.add(leftPanel);
+        controlPanel.add(rightPanel);
+        
+        // add components to leftPanel
+        leftPanel.add(deleteButton);
+        leftPanel.add(truncateButton);
+        
+        // add components to rightPanel
+        rightPanel.add(searchField);
+        rightPanel.add(searchButton);
+        rightPanel.add(refreshButton);
         
         // actionListener
-        refreshButton.addActionListener(this);
         deleteButton.addActionListener(this);
         truncateButton.addActionListener(this);
+        searchButton.addActionListener(this);
+        refreshButton.addActionListener(this);
+
         
         // create JFrame
         pack();
@@ -101,6 +121,12 @@ public class Table extends JFrame implements ActionListener {
         this.resizeTableColumns();
     }
     
+    public void filter(DefaultTableModel defaultModel, String query) {
+        TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<DefaultTableModel>(defaultModel);
+        mainTable.setRowSorter(rowSorter);
+        rowSorter.setRowFilter(RowFilter.regexFilter(query));
+    }
+    
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         
@@ -123,13 +149,20 @@ public class Table extends JFrame implements ActionListener {
             }
         } else if (source == truncateButton) {
             int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to clear the whole table?", "Drop Confirmation", JOptionPane.YES_NO_OPTION);
-            if (choice == 1) {
+            if (choice == 0) {
                 try {
                     db.truncateTable();
                     this.refreshTable();
                 } catch (SQLException ex) {
                     Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+        } else if (source == searchButton) {
+            String query = searchField.getText();
+            try {
+                this.filter(this.createTableModel(db.getTable(), headers), query);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
         
