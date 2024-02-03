@@ -10,8 +10,11 @@ public class Main {
         // set global theme
         enableNimbusLookAndFeel();
         
-        // start student information system
+        // create DatabaseHandler object and create a table if there is none
         DatabaseHandler db = new DatabaseHandler();
+        db.createTable();
+        
+        // launch gui program
         Gui gui = new Gui("Student Information System", db);
     }
     

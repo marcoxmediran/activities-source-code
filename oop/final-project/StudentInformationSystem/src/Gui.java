@@ -1,9 +1,12 @@
+
+import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class Gui extends JFrame implements ActionListener {
     
@@ -20,7 +23,7 @@ public class Gui extends JFrame implements ActionListener {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
         
-        button = new JButton("createTable");
+        button = new JButton("addStudent");
         
         // add mainPanel to JFrame
         add(mainPanel);
@@ -33,7 +36,7 @@ public class Gui extends JFrame implements ActionListener {
         
         // create JFrame
         pack();
-        setResizable(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -44,7 +47,7 @@ public class Gui extends JFrame implements ActionListener {
         
         if (source == button) {
             try {
-                db.createTable();
+                db.deleteStudent(3);
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
