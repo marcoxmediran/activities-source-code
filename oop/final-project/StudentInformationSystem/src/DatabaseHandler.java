@@ -31,8 +31,17 @@ public class DatabaseHandler {
     
     public void addStudent(Student student) throws SQLException {
         String query = "INSERT INTO STUDENTS (`firstName`, `lastName`, `age`, `gender`, `program`, `permanentAddress`, `emailAddress`) " + student.toString();
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        preparedStatement.execute();
+        this.statement.execute(query);
+    }
+    
+    public void deleteStudent(int id) throws SQLException {
+        String query = "DELETE FROM STUDENTS WHERE id=" + id;
+        this.statement.execute(query);
+    }
+    
+    public void truncateTable() throws SQLException {
+        String query = "TRUNCATE TABLE STUDENTS";
+        this.statement.execute(query);
     }
     
     public ResultSet getTable() throws SQLException {

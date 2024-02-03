@@ -1,5 +1,7 @@
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
@@ -17,7 +19,11 @@ public class Main {
         // launch gui program
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gui(db).setVisible(true);
+                try {
+                    new Gui(db).setVisible(true);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }

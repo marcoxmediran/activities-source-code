@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 public class Gui extends javax.swing.JFrame {
     
     private DatabaseHandler db;
+    private Table table;
     
     private ButtonGroup radioGroup;
     private JButton clearButton;
@@ -34,8 +35,9 @@ public class Gui extends javax.swing.JFrame {
     private JTextField addressField;
     private JTextField emailField;
 
-    public Gui(DatabaseHandler db) {
+    public Gui(DatabaseHandler db) throws SQLException {
         this.db = db;
+        this.table = new Table(this.db);
         initComponents();
     }
 
@@ -327,6 +329,7 @@ public class Gui extends javax.swing.JFrame {
         if (student.isValid()) {
             db.addStudent(student);
             this.clearFields();
+            this.table.refreshTable();
         } else {
             JOptionPane.showMessageDialog(null, "Please answer all fields", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -336,9 +339,9 @@ public class Gui extends javax.swing.JFrame {
         this.clearFields();
     }
 
-    private void displayButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                         
-        // Spawns database table window
-        Table table = new Table(db);
+    private void displayButtonActionPerformed(java.awt.event.ActionEvent evt) throws SQLException { 
+        // toggles table
+        this.table.setVisible(this.table.isVisible() ? false : true);
     }
     
     private void clearFields() {
