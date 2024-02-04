@@ -140,11 +140,11 @@ public class Table extends JFrame implements ActionListener {
             }
             this.mainTable.repaint();
         } else if (source == deleteButton) {
-            int row = this.mainTable.getSelectedRow();
-            int id = 0;
             try {
-                id = Integer.valueOf((String) this.mainTable.getModel().getValueAt(row, 0));
-                db.deleteStudent(id);
+                int row = this.mainTable.getSelectedRow();
+                int offsetId = this.mainTable.convertRowIndexToModel(row);
+                int studentId = Integer.valueOf((String) this.mainTable.getModel().getValueAt(offsetId, 0));
+                db.deleteStudent(studentId);
                 this.refreshTable();
             } catch (SQLException ex) {
                 ex.printStackTrace();
