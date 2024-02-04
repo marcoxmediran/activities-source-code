@@ -19,7 +19,8 @@ public class Table extends JFrame implements ActionListener {
     private JPanel controlPanel, leftPanel, rightPanel;
     private JTable mainTable;
     private JTextField searchField;
-    private JButton refreshButton, searchButton, deleteButton, truncateButton;
+    private JCheckBox filterCheckBox;
+    private JButton refreshButton, deleteButton, truncateButton;
     
     public Table(DatabaseHandler db) throws SQLException {
         // instantiate
@@ -42,7 +43,7 @@ public class Table extends JFrame implements ActionListener {
         truncateButton = new JButton("Clear Table");
         
         searchField = new JTextField(20);
-        searchButton = new JButton("Search");
+        filterCheckBox = new JCheckBox("Filter");
         refreshButton = new JButton("Refresh");
         
         
@@ -62,14 +63,14 @@ public class Table extends JFrame implements ActionListener {
         leftPanel.add(truncateButton);
         
         // add components to rightPanel
-        rightPanel.add(searchField);
-        rightPanel.add(searchButton);
         rightPanel.add(refreshButton);
+        rightPanel.add(filterCheckBox);
+        rightPanel.add(searchField);
         
         // actionListener
         deleteButton.addActionListener(this);
         truncateButton.addActionListener(this);
-        searchButton.addActionListener(this);
+        filterCheckBox.addActionListener(this);
         refreshButton.addActionListener(this);
 
         
@@ -132,6 +133,7 @@ public class Table extends JFrame implements ActionListener {
         
         if (source == refreshButton) {
             try {
+                this.filterCheckBox.setSelected(false);
                 this.refreshTable();
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -157,12 +159,25 @@ public class Table extends JFrame implements ActionListener {
                     Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } else if (source == searchButton) {
+        } else if (source == filterCheckBox) {
             String query = searchField.getText();
-            try {
-                this.filter(this.createTableModel(db.getTable(), headers), query);
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            searchField.setEditable(filterCheckBox.isSelected() ? false : true);
+            if (filterCheckBox.isSelected()) {
+                try {
+                    deleteButton.setEnabled(false);
+                    truncateButton.setEnabled(false);
+                    this.filter(this.createTableModel(db.getTable(), headers), query);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                try {
+                    this.refreshTable();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                deleteButton.setEnabled(true);
+                truncateButton.setEnabled(true);
             }
         }
         
