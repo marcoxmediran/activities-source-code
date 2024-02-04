@@ -164,8 +164,6 @@ public class Table extends JFrame implements ActionListener {
             searchField.setEditable(filterCheckBox.isSelected() ? false : true);
             if (filterCheckBox.isSelected()) {
                 try {
-                    deleteButton.setEnabled(false);
-                    truncateButton.setEnabled(false);
                     this.filter(this.createTableModel(db.getTable(), headers), query);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -176,8 +174,6 @@ public class Table extends JFrame implements ActionListener {
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-                deleteButton.setEnabled(true);
-                truncateButton.setEnabled(true);
             }
         }
         
