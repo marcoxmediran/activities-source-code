@@ -17,6 +17,8 @@ kill_browsers() {
     BROWSER="chrome"
   elif [[ $BROWSER = "org.mozilla.firefox.desktop" ]]; then
     BROWSER="firefox"
+  elif [[ $BROWSER = "brave-browser.desktop" ]]; then
+    BROWSER="brave"
   fi
   pkill "$BROWSER"
 }

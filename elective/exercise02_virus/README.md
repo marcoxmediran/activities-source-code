@@ -8,7 +8,7 @@ Create your first virus
 ## Prerequisites
 To be able to run the virus, the host machine should be:
 - Running any Linux Operating System
-- Has either `google-chrome` or `firefox` browsers
+- Has either `google-chrome` or `firefox` or `brave` browser
 ## Running the Virus
 To execute the virus, copy and paste the command below:
 ```sh
